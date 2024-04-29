@@ -48,10 +48,6 @@ const Switch = () => {
     setIsDarkMode(!isDarkMode);
   };
 
-  useEffect(() => {
-    console.log(isDarkMode);
-  }, [isDarkMode]);
-
   return (
     <ToggleSwitch>
       <HiddenInput checked={isDarkMode} onChange={onToggle} />
