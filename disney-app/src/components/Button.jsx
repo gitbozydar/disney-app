@@ -17,9 +17,13 @@ const StyledButton = styled.button`
   justify-content: center;
 `;
 
-const Button = ({ children }) => {
+const Button = ({ children, onClick }) => {
   const { isDarkMode } = useContext(ThemeContext);
 
-  return <StyledButton dark={isDarkMode}>{children}</StyledButton>;
+  return (
+    <StyledButton onClick={onClick} dark={isDarkMode}>
+      {children}
+    </StyledButton>
+  );
 };
 export default Button;

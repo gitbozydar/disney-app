@@ -9,20 +9,20 @@ const StyledWrapper = styled.div`
   padding: 1rem;
   background-color: ${(props) => (props.dark ? "#161d2c" : "white")};
   transition: background-color 0.3s ease;
-  gap: 1rem;
+  gap: ${(props) => props.gaps || "1rem"}; // Use gaps instead of gap
   height: fit-content;
   align-items: center;
-  row-gap: 2rem;
   flex-wrap: wrap;
   justify-content: ${(props) =>
     props.spacing === "space-between" ? "space-between" : "none"};
 `;
 
-const Wrapper = ({ children, variant, direction, spacing }) => {
+const Wrapper = ({ gaps, children, variant, direction, spacing }) => {
   const { isDarkMode } = useContext(ThemeContext);
 
   return (
     <StyledWrapper
+      gaps={gaps} // Pass gaps instead of gap
       dark={isDarkMode}
       spacing={spacing}
       direction={direction}

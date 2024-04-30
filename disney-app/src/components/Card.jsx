@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Button from "./Button";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import Modal from "./Modal";
 
 const StyledCard = styled.div`
   display: flex;
@@ -30,13 +31,33 @@ const StyledTitle = styled.h2`
   margin: 0;
 `;
 
-const Card = ({ name, imageUrl }) => {
+const Card = ({
+  name,
+  imageUrl,
+  id,
+  films,
+  shortFilms,
+  videoGames,
+  tvShows,
+}) => {
   const { isDarkMode } = useContext(ThemeContext);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleMoreInfo = () => {
+    setShowModal(true);
+  };
+
   return (
-    <StyledCard dark={isDarkMode}>
+    <StyledCard key={id} dark={isDarkMode}>
       <StyledImage src={imageUrl} alt={name} />
       <StyledTitle>{name}</StyledTitle>
-      <Button>More Info</Button>
+      <Button onClick={handleMoreInfo}>More Info</Button>
+      {showModal && (
+        <Modal
+          onClose={() => setShowModal(false)}
+          data={{ name, imageUrl, id, films, shortFilms, videoGames, tvShows }}
+        />
+      )}
     </StyledCard>
   );
 };

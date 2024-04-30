@@ -9,7 +9,6 @@ const StyledHeader = styled.div`
   justify-content: space-between;
   color: ${(props) => (!props.dark ? "black" : "white")};
   transition: color 0.3s ease;
-
   width: 100%;
 `;
 
