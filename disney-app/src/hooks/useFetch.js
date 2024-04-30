@@ -8,9 +8,11 @@ const useFetch = (url) => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
+      setData(null);
       try {
         const response = await fetch(url);
         const json = await response.json();
+
         setData(json);
         console.log(json);
       } catch (err) {

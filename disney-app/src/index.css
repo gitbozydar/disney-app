@@ -16,7 +16,6 @@ html {
 }
 
 body {
+  height: inherit;
   margin: 0;
-  display: flex;
-  height: 100%;
 }

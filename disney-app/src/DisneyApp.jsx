@@ -4,10 +4,10 @@ import Header from "./components/Header";
 import useFetch from "./hooks/useFetch";
 import Wrapper from "./components/Wrapper";
 import Card from "./components/Card";
-import Switch from "./components/Switch";
 import { PageContext } from "./context/PageContext";
 import PaginationControlled from "./components/PaginationControlled";
 import { useContext } from "react";
+import Toggler from "./components/Toggler";
 
 const DisneyApp = () => {
   const BASE_URL = "https://api.disneyapi.dev";
@@ -23,11 +23,11 @@ const DisneyApp = () => {
       <Wrapper direction="column">
         <Header>
           <Title>Disney+</Title>
-          <Switch />
+          <Toggler />
         </Header>
         <Wrapper spacing="space-between">
-          {isLoading && <p>Loading...</p>}
-          {error && <p>Error...</p>}
+          {isLoading && <Title>Loading...</Title>}
+          {error && <Title>Error...</Title>}
           {data &&
             data.data.map(
               (
@@ -46,7 +46,7 @@ const DisneyApp = () => {
               )
             )}
         </Wrapper>
-        <PaginationControlled allPages={data && data.info.totalPages} />
+        {data && <PaginationControlled allPages={data.info.totalPages} />}
       </Wrapper>
     </>
   );

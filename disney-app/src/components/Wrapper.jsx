@@ -1,16 +1,18 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { ThemeContext } from "../context/ThemeContext";
+import { colors } from "../colors";
 
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: ${(props) =>
     props.direction === "column" ? "column" : "row"};
   padding: 1rem;
-  background-color: ${(props) => (props.dark ? "#161d2c" : "white")};
+  background-color: ${(props) =>
+    props.$dark ? colors.dark.background : colors.light.background};
   transition: background-color 0.3s ease;
-  gap: ${(props) => props.gaps || "1rem"}; // Use gaps instead of gap
-  height: fit-content;
+  gap: ${(props) => props.$gaps || "1rem"};
+  min-height: 100%;
   align-items: center;
   flex-wrap: wrap;
   justify-content: ${(props) =>
@@ -22,8 +24,8 @@ const Wrapper = ({ gaps, children, variant, direction, spacing }) => {
 
   return (
     <StyledWrapper
-      gaps={gaps} // Pass gaps instead of gap
-      dark={isDarkMode}
+      $gaps={gaps}
+      $dark={isDarkMode}
       spacing={spacing}
       direction={direction}
       variant={variant}

@@ -3,6 +3,7 @@ import Button from "./Button";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import Modal from "./Modal";
+import { colors } from "../colors";
 
 const StyledCard = styled.div`
   display: flex;
@@ -14,8 +15,9 @@ const StyledCard = styled.div`
   padding-bottom: 1rem;
   align-items: center;
   flex-direction: column;
-  background-color: ${(props) => (props.dark ? "#201f24" : "white")};
-  color: ${(props) => (!props.dark ? "#000000" : "white")};
+  background-color: ${(props) =>
+    props.$dark ? colors.dark.card : colors.light.card};
+  color: ${(props) => (!props.$dark ? "#000000" : "white")};
   transition: background-color 0.3s ease, color 0.3s ease;
   justify-content: space-between;
 `;
@@ -48,7 +50,7 @@ const Card = ({
   };
 
   return (
-    <StyledCard key={id} dark={isDarkMode}>
+    <StyledCard key={id} $dark={isDarkMode}>
       <StyledImage src={imageUrl} alt={name} />
       <StyledTitle>{name}</StyledTitle>
       <Button onClick={handleMoreInfo}>More Info</Button>

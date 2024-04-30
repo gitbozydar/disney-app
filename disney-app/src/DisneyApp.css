@@ -1,4 +1,3 @@
 #root {
-  display: flex;
-  text-align: center;
+  height: inherit;
 }
