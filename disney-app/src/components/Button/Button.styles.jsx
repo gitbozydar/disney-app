@@ -1,9 +1,7 @@
-import { useContext } from "react";
+import { colors } from "../../colors";
 import styled from "styled-components";
-import { ThemeContext } from "../context/ThemeContext";
-import { colors } from "../colors";
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   display: flex;
   padding: 0.5rem;
   width: 100%;
@@ -18,14 +16,3 @@ const StyledButton = styled.button`
   transition: background-color 0.3s ease, color 0.3s ease;
   justify-content: center;
 `;
-
-const Button = ({ children, onClick }) => {
-  const { isDarkMode } = useContext(ThemeContext);
-
-  return (
-    <StyledButton onClick={onClick} $dark={isDarkMode}>
-      {children}
-    </StyledButton>
-  );
-};
-export default Button;

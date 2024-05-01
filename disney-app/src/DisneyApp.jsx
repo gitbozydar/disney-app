@@ -1,13 +1,13 @@
-import Title from "./components/Title";
+import Title from "./components/Title/Title";
 import "./DisneyApp.css";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import useFetch from "./hooks/useFetch";
-import Wrapper from "./components/Wrapper";
-import Card from "./components/Card";
+import Wrapper from "./components/Wrapper/Wrapper";
+import Card from "./components/Card/Card";
 import { PageContext } from "./context/PageContext";
-import PaginationControlled from "./components/PaginationControlled";
 import { useContext } from "react";
-import Toggler from "./components/Toggler";
+import Toggler from "./components/Toggler/Toggler";
+import CustomPagination from "./components/CustomPagination/CustomPagination";
 
 const DisneyApp = () => {
   const BASE_URL = "https://api.disneyapi.dev";
@@ -46,7 +46,7 @@ const DisneyApp = () => {
               )
             )}
         </Wrapper>
-        {data && <PaginationControlled allPages={data.info.totalPages} />}
+        {data && <CustomPagination allPages={data.info.totalPages} />}
       </Wrapper>
     </>
   );

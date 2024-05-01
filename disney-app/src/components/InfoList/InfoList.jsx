@@ -1,14 +1,6 @@
 import { useContext } from "react";
-import styled from "styled-components";
-import { ThemeContext } from "../context/ThemeContext";
-import { colors } from "../colors";
-
-const StyledList = styled.ul`
-  color: ${(props) =>
-    props.$dark ? colors.dark.typography : colors.light.typography};
-  margin: 0;
-  width: 100%;
-`;
+import { ThemeContext } from "../../context/ThemeContext";
+import { StyledList } from "./InfoList.styles";
 
 const InfoList = ({ toMapArray }) => {
   const { isDarkMode } = useContext(ThemeContext);

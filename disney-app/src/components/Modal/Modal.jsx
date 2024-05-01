@@ -1,36 +1,10 @@
-import styled from "styled-components";
 import { createPortal } from "react-dom";
-import Title from "./Title";
-import Button from "./Button";
-import ThemeProvider, { ThemeContext } from "../context/ThemeContext";
+import Title from "../Title/Title";
+import Button from "../Button/Button";
+import { ThemeContext } from "../../context/ThemeContext";
 import { useContext } from "react";
-import InfoList from "./InfoList";
-import { colors } from "../colors";
-
-const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: ${colors.shadow};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Content = styled.div`
-  background-color: ${(props) =>
-    props.$dark ? colors.dark.background : colors.light.background};
-  display: flex;
-  border-radius: 1rem;
-  color: ${(props) =>
-    props.$dark ? colors.dark.typography : colors.light.typography};
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  gap: 0.2rem;
-`;
+import InfoList from "../InfoList/InfoList";
+import { Content, Overlay } from "./Modal.styles";
 
 const Modal = ({ onClose, data }) => {
   const { name, imageUrl, films, shortFilms, videoGames, tvShows } = data;
