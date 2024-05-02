@@ -2,7 +2,7 @@
   "name": "disney-app",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://gitbozydar.github.io/disney-app/",
+  "homepage": "https://gitbozydar.github.io/disney-app",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
