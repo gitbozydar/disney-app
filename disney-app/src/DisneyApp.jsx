@@ -8,6 +8,7 @@ import { PageContext } from "./context/PageContext";
 import { useContext } from "react";
 import Toggler from "./components/Toggler/Toggler";
 import CustomPagination from "./components/CustomPagination/CustomPagination";
+import Loading from "./components/Loading/Loading";
 
 const DisneyApp = () => {
   const BASE_URL = "https://api.disneyapi.dev";
@@ -25,8 +26,8 @@ const DisneyApp = () => {
           <Title>Disney+</Title>
           <Toggler />
         </Header>
-        <Wrapper spacing="space-between">
-          {isLoading && <Title>Loading...</Title>}
+        <Wrapper spacing="center">
+          {isLoading && <Loading />}
           {error && <Title>Error...</Title>}
           {data &&
             data.data.map(

@@ -10,9 +10,9 @@ export const colors = {
   },
   light: {
     typography: "#000000",
-    background: "#fffafa",
+    background: "#d6d4e0",
     border: "#191970",
-    card: "#b0e0e6",
+    card: "#b8a9c9",
     button: "#d8bfd8",
     toggleThumb: "#000000",
   },

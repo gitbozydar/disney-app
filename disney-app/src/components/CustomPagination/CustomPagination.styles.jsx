@@ -6,6 +6,9 @@ const StyledPagination = styled(Pagination)(({ $dark }) => ({
   ".MuiPaginationItem-text": {
     color: $dark ? colors.dark.typography : colors.light.typography,
   },
+  "&& .Mui-selected ": {
+    backgroundColor: $dark ? colors.dark.button : colors.light.button,
+  },
 }));
 
 export { StyledPagination };

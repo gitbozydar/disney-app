@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../colors";
 
-const Overlay = styled.div`
+const StyledOverlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@ const Overlay = styled.div`
   align-items: center;
 `;
 
-const Content = styled.div`
+const StyledContent = styled.div`
   background-color: ${(props) =>
     props.$dark ? colors.dark.background : colors.light.background};
   display: flex;
@@ -25,4 +25,11 @@ const Content = styled.div`
   padding: 20px;
   gap: 0.2rem;
 `;
-export { Content, Overlay };
+
+const StyledImg = styled.img`
+  border-radius: 100%;
+  width: 20%;
+  overflow: hidden;
+`;
+
+export { StyledOverlay, StyledContent, StyledImg };
